@@ -1,12 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Formik, Form, Field } from "formik";
+import "./header.css"
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <h1>hello world</h1>
+    <div>
+      <header>
+        <Formik
+          initialValues={{ search: "" }}
+          onSubmit={async (values) => {
+            // Llamar a la api de unsplash
+            console.log(values);
+          }}
+        >
+          <Form>
+            <Field name='search' />
+          </Form>
+        </Formik>
+      </header>
     </div>
   );
-}
+};
 
 export default App;
